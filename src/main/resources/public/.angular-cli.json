@@ -1,0 +1,81 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "auction"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css",
+        "assets/bower_components/bootstrap/dist/css/bootstrap.min.css",
+        "assets/bower_components/font-awesome/css/font-awesome.min.css",
+        "assets/bower_components/Ionicons/css/ionicons.min.css",
+        "../node_modules/datatables.net-bs/css/dataTables.bootstrap.css",
+        "../node_modules/admin-lte/dist/css/AdminLTE.min.css",
+        "../node_modules/admin-lte/dist/css/skins/skin-blue.min.css",
+        "assets/bower_components/bootstrap-daterangepicker/daterangepicker.css",
+        "assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/datatables.net/js/jquery.dataTables.js",
+        "../node_modules/datatables.net-bs/js/dataTables.bootstrap.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+        "../node_modules/admin-lte/dist/js/adminlte.min.js",
+        "../node_modules/moment/min/moment.min.js",
+        "../node_modules/bootstrap-daterangepicker/daterangepicker.js",
+        "../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js",
+        "assets/js/bootstrap-fileinput-master/js/fileinput.min.js",
+        "assets/js/bootstrap-fileinput-master/js/locales/zh.js",
+        "../node_modules/bootbox/bootbox.js",
+        "../node_modules/bootpopup/bootpopup.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

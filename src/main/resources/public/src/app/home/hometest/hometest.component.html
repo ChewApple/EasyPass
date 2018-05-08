@@ -1,0 +1,18 @@
+<!--<p>-->
+<!--我是子组件-->
+<!--</p>-->
+<!--<p>获取到的搜索关键字是{{searchKeyword}}</p>-->
+
+
+<form #myForm="ngForm" (ngSubmit)="createUser(myForm, myForm.valid)">
+  <div>用户名<input ngModel name="nickName" type="text"></div>
+  <div>手机号<input ngModel mobile name="mobile" type="number"></div>
+  <div [hidden]="!myForm.form.hasError('mobile','mobile')">号码格式不正确</div>
+  <div>邮箱<input ngModel name="emails" type="email"></div>
+  <div ngModelGroup="passwordInfo">
+    <div>密码<input ngModel name="pwd" type="password"></div>
+    <div>确认密码<input ngModel name="pwdConfirm" type="password"></div>
+  </div>
+  <button type="submit">注册</button>
+</form>
+

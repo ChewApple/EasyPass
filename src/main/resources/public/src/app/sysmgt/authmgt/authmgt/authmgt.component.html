@@ -1,0 +1,29 @@
+<div class="box">
+  <div class="box-header">
+    <!--<button type="submit" class="btn btn-primary pull-left" (click)="create()">新建角色</button>-->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>编号</th>
+        <th>角色名</th>
+        <th>分配权限</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let role of roles; let i = index;">
+        <td>{{role.roleid}}</td>
+        <td>{{role.rolename}}</td>
+        <td style="width:60%;">{{role.authlist}}</td>
+        <td>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil" (click)="edit(role)"></span>编辑权限</a>
+          <!--<a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

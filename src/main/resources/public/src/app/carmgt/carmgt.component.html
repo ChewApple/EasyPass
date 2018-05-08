@@ -1,0 +1,119 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">车辆信息查询</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">车架号</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">车辆详情</label>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">品牌</div>
+          <select class="form-control">
+            <option value="福特">福特</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">车系</div>
+          <select class="form-control">
+            <option value="福克斯">福克斯</option>
+          </select>
+        </div>
+        <!--<div class="col-sm-3" style="display:table;">-->
+          <!--<div class="input-group-addon">车型</div>-->
+          <!--<select class="form-control">-->
+            <!--<option value="运动">2018 2.0T 运动</option>-->
+          <!--</select>-->
+        <!--</div>-->
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">初次登记日期</label>
+        <div class="col-sm-3" style="display:table;">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control" id="carmgt_form_dp">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">创建人</label>
+        <div class="col-sm-2">
+          <select class="form-control">
+            <option>王菲</option>
+            <option>科比</option>
+            <option>詹姆斯</option>
+          </select>
+        </div>
+        <!--<span><i class="fa fa-fw fa-plus-square-o" (click)="addContact()"></i></span>-->
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary pull-left" (click)="create()">新建车辆</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;">查询</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">查询结果</h3>
+    <!--<button>Excel导出</button>-->
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="cusmgtTable" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>车辆编号</th>
+        <th>品牌</th>
+        <th>车系</th>
+        <th>车型</th>
+        <th>车架号</th>
+        <th>初次登记日期</th>
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>0000001</td>
+        <td>福特</td>
+        <td>福克斯</td>
+        <td>2018T2.0运动</td>
+        <td>123456789010</td>
+        <td>2018-01-01</td>
+        <td>杨磊</td>
+        <td>2018-02-02</td>
+        <td>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>编辑</a>
+          <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>删除</a>
+          <a class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span>创建订单</a>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>车辆编号</th>
+        <th>品牌</th>
+        <th>车系</th>
+        <th>车型</th>
+        <th>初次登记日期</th>
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>操作</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>

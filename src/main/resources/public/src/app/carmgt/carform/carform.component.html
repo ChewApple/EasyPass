@@ -1,0 +1,53 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">新增车辆信息</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">车架号</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">车辆详情</label>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">品牌</div>
+          <select class="form-control">
+            <option value="福特">福特</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">车系</div>
+          <select class="form-control">
+            <option value="福克斯">福克斯</option>
+          </select>
+        </div>
+        <div class="col-sm-3" style="display:table;">
+          <div class="input-group-addon">车型</div>
+          <select class="form-control">
+            <option value="运动">2018 2.0T 运动</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">初次登记日期</label>
+        <div class="col-sm-3" style="display:table;">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control" id="carform_dp">
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary pull-left" (click)="cancel()">取消</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;">确定</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>

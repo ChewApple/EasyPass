@@ -1,0 +1,24 @@
+.formInput {
+  width: 25%;
+  display: inline;
+}
+.formLabel {
+  padding-top: 3px;
+  margin-bottom: 0;
+  text-align: right;
+  width: 16.66667%;
+  padding-right: 5px;
+}
+.formAlertLeft{
+  padding-left: 16%;
+  display:inline;
+}
+.formAlertRight{
+  padding-left: 28%;
+  display:inline;
+}
+.formP{
+  margin-top: -15px;
+  font-size: 10px;
+  color: red;
+}

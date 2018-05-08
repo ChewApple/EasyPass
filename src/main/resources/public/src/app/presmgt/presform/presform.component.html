@@ -1,0 +1,467 @@
+<form class="form-horizontal" [formGroup]="formModel">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">基本信息</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="box-body">
+      <div class="form-group" style="display:flex;">
+        <label class="col-sm-2 control-label">客户模式</label>
+        <div class="col-sm-2">
+          <select class="form-control">
+            <option>全部</option>
+            <option>个人</option>
+            <option>公司</option>
+          </select>
+        </div>
+        <label class="col-sm-2 control-label">客户名称</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">代办商联系人</label>
+        <div class="col-sm-2">
+          <input type="number" class="form-control" disabled>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary">导入联系人</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">车辆户籍地</label>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">省</div>
+          <select class="form-control">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">市</div>
+          <select class="form-control">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">县</div>
+          <select class="form-control">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">牌照代码</label>
+        <div class="col-sm-1">
+          <input type="text" class="form-control" placeholder="浙">
+        </div>
+        <div class="col-sm-1">
+          <input type="text" class="form-control" placeholder="C">
+        </div>
+      </div>
+      <div class="form-group">
+        <!--<ul formArrayName="contacts">-->
+        <!--<li *ngFor="let e of formModel.get('contacts').controls;let i = index">-->
+        <!--<label class="col-sm-1 control-label">姓名</label>-->
+        <!--<div class="col-sm-4">-->
+        <!--<input type="text" class="form-control" [formControlName]="i">-->
+        <!--</div>-->
+        <!--<label class="col-sm-1 control-label">电话</label>-->
+        <!--<div class="col-sm-6">-->
+        <!--<input type="number" class="form-control" [formControlName]="i">-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <!-- /.box-footer -->
+  </div>
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">办证项目以及费用</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="box-body">
+      <table style="width:100%">
+        <!--// 提档-->
+        <tr>
+          <td>
+            提档<input type="checkbox" checked disabled>
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>提档交易税</td>
+          <td><input type="number"></td>
+          <td>提档金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--// 过户-->
+        <tr>
+          <td>
+            过户<input type="checkbox" checked disabled>
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td>过户交易税</td>
+          <td><input type="number"></td>
+          <td>过户金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--上牌-->
+        <tr>
+          <td>
+            上牌<input type="checkbox" formControlName="checkboxShangpai" name="cbShangpai">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxShangpai').value">
+          <td>上牌交易税</td>
+          <td><input type="number"></td>
+          <td>上牌金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxShangpai').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--违章-->
+        <tr>
+          <td>
+            违章<input type="checkbox" formControlName="checkboxWeizhang">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxWeizhang').value">
+          <td>违章金额</td>
+          <td><input type="number"></td>
+          <td>扣分金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxWeizhang').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--抵押-->
+        <tr>
+          <td>
+            抵押/接触抵押<input type="checkbox" formControlName="checkboxDiya">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxDiya').value">
+          <td>抵押/接触抵押金额</td>
+          <td colspan="3"><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxDiya').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--委托-->
+        <tr>
+          <td>
+            委托<input type="checkbox" formControlName="checkboxWeituo">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxWeituo').value">
+          <td>委托金额</td>
+          <td colspan="3"><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxWeituo').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--年检-->
+        <tr>
+          <td>
+            年检<input type="checkbox" formControlName="checkboxNianjian">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxNianjian').value">
+          <td>年检金额</td>
+          <td colspan="3"><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxNianjian').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--换补牌证-->
+        <tr>
+          <td>
+            换补牌证<input type="checkbox" formControlName="checkboxHuanbu">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxHuanbu').value">
+          <td>换补牌证金额</td>
+          <td colspan="3"><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxHuanbu').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <!--其他-->
+        <tr>
+          <td>
+            其他<input type="checkbox" formControlName="checkboxQita">
+          </td>
+          <td colspan="3"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxQita').value">
+          <td>所需金额</td>
+          <td colspan="3"><input type="number"></td>
+        </tr>
+        <tr [hidden]="!formModel.get('checkboxQita').value">
+          <td>预计完成工作日</td>
+          <td><input type="number"></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+      </table>
+    </div>
+    <!-- /.box-body -->
+    <!-- /.box-footer -->
+  </div>
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">办证要求以及费用</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="box-body">
+      <table style="width:100%;">
+        <tr>车辆所需材料</tr>
+        <tr>
+          <td>车辆登记证书<input type="checkbox" checked></td>
+          <td>行驶证<input type="checkbox" checked></td>
+          <td>交强险保单<input type="checkbox"></td>
+          <td>购置税本<input type="checkbox"></td>
+          <td colspan="2">新车发票<input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td colspan="3">其他<input type="checkbox">
+          <td>其他摘要说明</td>
+          <td colspan="2"><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>车辆是否需要到场</td>
+          <td>是
+            <input type="radio" name="carPresence">
+            否
+            <input type="radio" name="carPresence">
+          </td>
+          <td>金额</td>
+          <td><input></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+        <tr>
+          原车主
+        </tr>
+        <tr>
+          <td>身份证</td>
+          <td>
+            原件<input type="radio" name="oriOwnerId">
+            复印件<input type="radio" name="oriOwnerId">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>费用</td>
+          <td><input></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="checkbox"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>本人是否到场</td>
+          <td>
+            是<input type="radio" name="oriOwnerPresence">
+            否<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板视频
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传视频</td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+        <tr>
+          <td>上传样板公证书
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传公证书</td>
+        </tr>
+        <tr>
+          <td>摘要说明</td>
+          <td colspan="2"><textarea></textarea></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>原车主单位营业执照</td>
+          <td>
+            原件<input type="radio" name="oriOwnerPresence">
+            复印件<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+        <tr>
+          新车主
+        </tr>
+        <tr>
+          <td>身份证</td>
+          <td>
+            原件<input type="radio" name="oriOwnerId">
+            复印件<input type="radio" name="oriOwnerId">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>费用</td>
+          <td><input></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="checkbox"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>本人是否到场</td>
+          <td>
+            是<input type="radio" name="oriOwnerPresence">
+            否<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板视频
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传视频</td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+        <tr>
+          <td>上传样板公证书
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传公证书</td>
+        </tr>
+        <tr>
+          <td>摘要说明</td>
+          <td colspan="2"><textarea></textarea></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>原车主单位营业执照</td>
+          <td>
+            原件<input type="radio" name="oriOwnerPresence">
+            复印件<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+      </table>
+    </div>
+    <!-- /.box-body -->
+    <!-- /.box-footer -->
+  </div>
+  <!-- /.box -->
+  <div class="box-footer">
+    <button type="button" class="btn btn-default" (click)="cancel()">取消</button>
+    <button type="button" class="btn btn-default" (click)="cancel()">保存</button>
+    <button type="submit" class="btn btn-info pull-right">确认(提交)</button>
+  </div>
+</form>

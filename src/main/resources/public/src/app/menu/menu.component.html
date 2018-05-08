@@ -1,0 +1,36 @@
+<aside class="main-sidebar" style="z-index:4;">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel" style="padding: 40px;">
+      <div class="Jheader">
+        <i class="glyphicon glyphicon-user" style="padding-right: 5px;"></i><span>{{userName}}</span> <span>{{rolename}}</span>
+      </div>
+    </div>
+    <!-- /.search form -->
+
+    <!-- Sidebar Menu -->
+    <ul class="">
+      <!--<li class="header">菜单header</li>-->
+      <!-- Optionally, you can add icons to the links -->
+      <!--<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>-->
+      <!--<li></li>-->
+      <!--<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>-->
+
+      <li class="JmenuArea" *ngFor="let menu of menus">
+        <a><i class="fa fa-th"></i> <span>{{menu.name}}</span>
+          <!--<span class="pull-right-container">-->
+                <!--<i class="fa fa-angle-left pull-right"></i>-->
+              <!--</span>-->
+        </a>
+        <ul class="Jsubmenu">
+          <li *ngFor="let submenu of menu.subMenu" [class.active]="currentMenuId == submenu.id"><a href="javascript:;" (click)="nav(submenu)"><i class="fa fa-circle-o"></i>{{submenu.name}}</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

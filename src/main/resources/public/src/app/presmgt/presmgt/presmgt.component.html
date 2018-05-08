@@ -1,0 +1,158 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">销售限价查询</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">详细地址</label>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">省</div>
+          <select class="form-control">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">市</div>
+          <select class="form-control">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">县</div>
+          <select class="form-control">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">牌照代码</label>
+        <div class="col-sm-1">
+          <input type="text" class="form-control" placeholder="浙">
+        </div>
+        <div class="col-sm-1">
+          <input type="text" class="form-control" placeholder="C">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">客户模式</label>
+        <div class="col-sm-2">
+          <select class="form-control">
+            <option>全部</option>
+            <option>个人</option>
+            <option>公司</option>
+          </select>
+        </div>
+        <label class="col-sm-2 control-label">客户名称</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+        <!--<span><i class="fa fa-fw fa-plus-square-o" (click)="addContact()"></i></span>-->
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">销售费用</label>
+        <div class="col-sm-2">
+          <select class="form-control">
+            <option>全部</option>
+            <option>未录入</option>
+            <option>已录入</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">办证项目</label>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>上牌</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div >违章</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>抵押/解除抵押</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>委托</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>年检</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>换补牌证</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>其他</div>
+          <input type="checkbox">
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary pull-left" (click)="create()">新建预录客户</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;">查询</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">查询结果</h3>
+    <button>Excel导出</button>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="cusmgtTable" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>客户编号</th>
+        <th>客户名称</th>
+        <th>省市县</th>
+        <th>牌照代码</th>
+        <th>办证项目</th>
+        <th>销售费用</th>
+        <th>代办商联系人</th>
+        <th>创建人</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>湖南客户1</td>
+        <td>湖南省长沙市长沙县</td>
+        <td>湘D</td>
+        <td>上牌，过户，年检</td>
+        <td>50000</td>
+        <td>何炅</td>
+        <td>杨磊</td>
+        <td>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>编辑</a>
+          <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>删除</a>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>客户编号</th>
+        <th>客户名称</th>
+        <th>省市县</th>
+        <th>牌照代码</th>
+        <th>办证项目</th>
+        <th>销售费用</th>
+        <th>代办商联系人</th>
+        <th>创建人</th>
+        <th>操作</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>

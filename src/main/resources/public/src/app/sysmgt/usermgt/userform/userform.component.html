@@ -1,0 +1,83 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">用户更新</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal" [formGroup]="formModel">
+    <div class="box-body">
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-1 control-label">用户名</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" formControlName="userName">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formModel, 'userName')"
+            errorMsg="*只能输入中文"></app-field-error-display>
+        </div>
+        <label class="col-sm-1 control-label">手机号码</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" formControlName="phone">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formModel, 'phone')" errorMsg="*格式不正确"></app-field-error-display>
+        </div>
+      </div>
+      <div class="form-group" style="padding:5px;" formGroupName="passwordInfo">
+        <label class="col-sm-1 control-label">密码</label>
+        <div class="col-sm-2">
+          <input type="password" class="form-control" formControlName="password">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formModel, 'passwordInfo.password')"
+            errorMsg="*密码必须大于6位"></app-field-error-display>
+        </div>
+        <label class="col-sm-1 control-label">确认密码</label>
+        <div class="col-sm-2">
+          <input type="password" class="form-control" formControlName="passwordConfirm">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formModel, 'passwordInfo')"
+            errorMsg="*密码不匹配"></app-field-error-display>
+        </div>
+      </div>
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-1 control-label">岗位</label>
+        <div class="col-sm-2">
+          <select class="form-control" formControlName="position" >
+            <option *ngFor="let role of roles | async; let i = index;" value={{role.rolename}}>{{role.rolename}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-1 control-label">性别</label>
+        <div class="col-sm-2" style="padding-top: 5px;">
+          <label>
+            男<input type="radio" name="gender" value="男" formControlName="gender">
+          </label>
+          <label>
+            女<input type="radio" name="gender" value="女" formControlName="gender">
+          </label>
+        </div>
+        <label class="col-sm-1 control-label">状态</label>
+        <div class="col-sm-2" style="padding-top: 5px;">
+          <label>
+            激活<input type="radio" name="state" value='激活' formControlName="state">
+          </label>
+          <label>
+            失效<input type="radio" name="state" value='失效' formControlName="state">
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label">上传证件照</label>
+        <div class="col-sm-2">
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">照片相关要求</p>
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="button" class="btn btn-primary pull-left" (click)="cancel()">取消</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;" (click)="save()">{{ userid==0 ?'新建':'保存'}}</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>

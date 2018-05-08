@@ -1,0 +1,256 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">订单查询</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">订单编号</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+        <label class="col-sm-2 control-label">客户名称</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">车架号</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+        <label class="col-sm-2 control-label">牌照代码</label>
+        <div class="col-sm-2" style="display:flex;">
+          <select class="form-control">
+            <option>沪</option>
+          </select>
+          <select class="form-control">
+            <option>C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">车辆详情</label>
+      <div class="col-sm-2" style="display:table;">
+        <div class="input-group-addon">品牌</div>
+        <select class="form-control">
+          <option value="福特">福特</option>
+        </select>
+      </div>
+      <div class="col-sm-2" style="display:table;">
+        <div class="input-group-addon">车系</div>
+        <select class="form-control">
+          <option value="福克斯">福克斯</option>
+        </select>
+      </div>
+      <div class="col-sm-3" style="display:table;">
+        <div class="input-group-addon">车型</div>
+        <select class="form-control">
+          <option value="运动">2018 2.0T 运动</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">车辆户籍地</label>
+      <div class="col-sm-2" style="display:table;">
+        <div class="input-group-addon">省</div>
+        <select class="form-control">
+          <option value="上海">上海</option>
+        </select>
+      </div>
+      <div class="col-sm-2" style="display:table;">
+        <div class="input-group-addon">市</div>
+        <select class="form-control">
+          <option value="上海">上海</option>
+        </select>
+      </div>
+      <div class="col-sm-2" style="display:table;">
+        <div class="input-group-addon">县</div>
+        <select class="form-control">
+          <option value="上海">上海</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">原车牌号码</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">办证截止日期</label>
+      <div class="col-sm-3" style="display:table;">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <input type="text" class="form-control" id="odrmgt_form_dp">
+      </div>
+      <label class="col-sm-2 control-label" style="width:12%;">办证预定日期</label>
+      <div class="col-sm-3" style="display:table;">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <input type="text" class="form-control" id="odrmgt_form_dp2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">快递单号</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control">
+      </div>
+      <label class="col-sm-2 control-label" style="width:12%;">快递发送时间</label>
+      <div class="col-sm-3" style="display:table;">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar"></i>
+        </div>
+        <input type="text" class="form-control" id="odrmgt_form_dp3">
+      </div>
+      <label class="col-sm-2 control-label" style="width:12%;">材料是否寄出</label>
+      <div class="formRadio">
+        <div>是</div>
+        <div><input type="radio" name="OdrKuaidi"></div>
+        <div>否</div>
+        <div><input type="radio" name="OdrKuaidi"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">原车主姓名</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control">
+      </div>
+      <label class="col-sm-2 control-label">原车主电话</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">商户（下家）姓名</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control">
+      </div>
+      <label class="col-sm-2 control-label">商户（下家）电话</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">创建人</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">办证项目</label>
+      <div class="formMulCheckBox col-sm-2 ">
+        <div>上牌</div>
+        <input type="checkbox">
+      </div>
+      <div class="col-sm-2 formMulCheckBox">
+        <div>过户</div>
+        <input type="checkbox">
+      </div>
+      <div class="col-sm-2 formMulCheckBox">
+        <div>抵押</div>
+        <input type="checkbox">
+      </div>
+      <div class="col-sm-2 formMulCheckBox">
+        <div>委托</div>
+        <input type="checkbox">
+      </div>
+      <div class="col-sm-2 formMulCheckBox">
+        <div>年检</div>
+        <input type="checkbox">
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary pull-left" (click)="create()">新建订单</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;">查询</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>
+
+<div class="box" style="min-width: 1475px;">
+  <div class="box-header">
+    <h3 class="box-title">查询结果</h3>
+    <button>Excel导出</button>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="cusmgtTable" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>订单编号</th>
+        <td>客户名称</td>
+        <th>品牌</th>
+        <th>车系</th>
+        <th>车型</th>
+        <th>车架号</th>
+        <th>原车主姓名</th>
+        <th>商家（下家）姓名</th>
+        <th>办证项目</th>
+        <th>状态</th>
+        <th>材料寄出状态</th>
+        <th>办证截止日期</th>
+        <td>创建人</td>
+        <td>备注</td>
+        <td>操作</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>0000001</td>
+        <td>王菲</td>
+        <td>福特</td>
+        <td>福克斯</td>
+        <td>2018T2.0运动</td>
+        <td>123456789010</td>
+        <td>谢霆锋</td>
+        <td>陈冠希</td>
+        <td>上牌，过户，年检</td>
+        <td>已完成</td>
+        <td>已收到</td>
+        <td>2018-01-01</td>
+        <td>杨磊</td>
+        <td>备注内容</td>
+        <td>
+          <p>
+            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>编辑</a>
+            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-ok-circle"></span>提交</a>
+            <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-check"></span>快递签收</a>
+          </p>
+          <p>
+            <a class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span>分单</a>
+            <a class="btn btn-info btn-xs"><span class="glyphicon glyphicon-search"></span>查看</a>
+            <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>取消</a>
+          </p>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>订单编号</th>
+        <td>客户名称</td>
+        <th>品牌</th>
+        <th>车系</th>
+        <th>车型</th>
+        <th>车架号</th>
+        <th>原车主姓名</th>
+        <th>商家（下家）姓名</th>
+        <th>办证项目</th>
+        <th>状态</th>
+        <th>材料寄出状态</th>
+        <th>办证截止日期</th>
+        <td>创建人</td>
+        <td>备注</td>
+        <td>操作</td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>

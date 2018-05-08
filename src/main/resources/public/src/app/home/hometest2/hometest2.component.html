@@ -1,0 +1,21 @@
+<form [formGroup]="formModel" (submit)="createUser()">
+  <div>用户名<input formControlName="nickName" type="text"></div>
+  <div [hidden]="formModel.get('nickName').valid || formModel.get('nickName').untouched">
+    <div [hidden]="!formModel.hasError('required','nickName')">昵称是必填项</div>
+  </div>
+  <div [hidden]="!formModel.hasError('minlength','nickName')">长度必须大于6</div>
+  <div>手机号<input formControlName="mobile" type="number"></div>
+  <div>邮箱
+    <ul formArrayName="emails">
+      <li *ngFor="let email of formModel.get('emails').controls; let i = index">
+        <input [formControlName]="i">
+      </li>
+    </ul>
+    <button type="button" (click)="addEmail()">增加email</button>
+  </div>
+  <div formGroupName="passwordInfo">
+    <div>密码<input formControlName="pwd" type="password"></div>
+    <div>确认密码<input formControlName="pwdConfirm" type="password"></div>
+  </div>
+  <button type="submit">注册</button>
+</form>

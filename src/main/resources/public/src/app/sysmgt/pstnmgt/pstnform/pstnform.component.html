@@ -1,0 +1,39 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">新建岗位</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal" [formGroup]="formGroup">
+    <div class="box-body">
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-2 control-label">岗位名</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" formControlName="rolename">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'rolename')"
+            errorMsg="*岗位名不能为空"></app-field-error-display>
+        </div>
+      </div>
+      <div class="box-body with-border"><h3>权限设置</h3></div>
+      <div class="box-body with-border">
+        <div class="form-group">
+          <!--<div *ngFor="let auth of formGroup.get('authlist').controls; let i=index">-->
+          <div *ngFor="let control of formGroup.get('authlist').controls; let i=index">
+            <div class="col-xs-2">
+              <input type="checkbox" [formControl]="control" value="{{current_auths[i].authid}}">{{current_auths[i].authname}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="button" class="btn btn-primary pull-left" (click)="cancel()">取消</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;" (click)="save()">
+        {{roleid==0?'创建':'保存'}}
+      </button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>

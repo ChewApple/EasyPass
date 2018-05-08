@@ -1,0 +1,91 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">客户查询</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal" [formGroup]="formGroup">
+    <div class="box-body">
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-2 control-label">客户名称</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" formControlName="cusname">
+        </div>
+        <label class="col-sm-2 control-label">客户模式</label>
+        <div class="col-sm-2">
+          <select class="form-control" formControlName="cusmode">
+            <option>全部</option>
+            <option>个人</option>
+            <option>公司</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <div class="form-group " style="padding:5px;">
+          <label class="col-sm-2 control-label">联系人</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" formControlName="contact">
+          </div>
+          <label class="col-sm-2 control-label">联系人手机号码</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" formControlName="contactPhone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">是否战败</label>
+          <div class="col-sm-2">
+            是<input type="radio" name="temp1">
+            否<input type="radio" name="temp1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="button" class="btn btn-primary pull-left" (click)="create()">新建客户</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;" (click)="search(formGroup.value)">查询客户</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">查询结果</h3>
+    <button>Excel导出</button>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="cusmgtTable" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>客户编号</th>
+        <th>客户名称</th>
+        <th>联系人手机号</th>
+        <th>客户模式</th>
+        <th>详细地址</th>
+        <th>创建时间</th>
+        <th>创建人</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cus of customers | async; let i = index;">
+        <td>{{cus.cusid}}</td>
+        <td>{{cus.cusname}}</td>
+        <td>{{cus.contactPhone}}</td>
+        <td>{{cus.cusmode}}</td>
+        <td>{{cus.address}}</td>
+        <td>{{date.dateFmt(cus.createdate)}}</td>
+        <td>{{cus.creator}}</td>
+        <td>
+          <a class="btn btn-warning btn-xs" (click)="edit(cus)"><span class="glyphicon glyphicon-pencil"></span>编辑</a>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>

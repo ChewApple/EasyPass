@@ -1,0 +1,70 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">新建客户</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal" [formGroup]="formGroup">
+    <div class="box-body">
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-2 control-label">客户模式</label>
+        <div class="col-sm-2">
+          <select class="form-control" formControlName="cusmode">
+            <option value="个人">个人</option>
+            <option value="公司">公司</option>
+          </select>
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'cusmode')" errorMsg="*必填项"></app-field-error-display>
+        </div>
+        <label class="col-sm-2 control-label">客户名称</label>
+        <div class="col-sm-2">
+          <input class="form-control" formControlName="cusname">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'cusname')" errorMsg="*必填项"></app-field-error-display>
+        </div>
+      </div>
+      <div class="form-group" style="padding:5px;">
+        <label class="col-sm-2 control-label">联系人</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" formControlName="contact">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'contact')" errorMsg="*必填项"></app-field-error-display>
+        </div>
+        <label class="col-sm-2 control-label">联系人手机号</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" formControlName="contactPhone">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'contactPhone')" errorMsg="*必填项"></app-field-error-display>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">详细地址</label>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">省</div>
+          <select class="form-control" formControlName="province">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">市</div>
+          <select class="form-control" formControlName="city">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">县</div>
+          <select class="form-control" formControlName="area">
+            <option value="上海">上海</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="button" class="btn btn-primary pull-left" (click)="cancel()">取消</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;" (click)="save()">{{cusid==0?'创建':'保存'}}</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>

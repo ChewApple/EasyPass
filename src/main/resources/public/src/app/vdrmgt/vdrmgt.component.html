@@ -1,0 +1,180 @@
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">代办商查询</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">详细地址</label>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">省</div>
+          <select class="form-control" (change)="showCity($event)">
+            <option disabled>请选择省</option>
+            <option *ngFor="let pro of province | async; let i = index" value="{{pro.name}}">{{pro.name}}</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">市</div>
+          <select class="form-control" (change)="showArea($event)">
+            <option disabled selected = "selected">请选择市</option>
+            <option *ngFor="let c of city | async; let i = index" value="{{c.name}}">{{c.name}}</option>
+          </select>
+        </div>
+        <div class="col-sm-2" style="display:table;">
+          <div class="input-group-addon">区</div>
+          <select class="form-control">
+            <option disabled selected = "selected">请选择区</option>
+            <option *ngFor="let a of area | async; let i = index" value="{{a.name}}">{{a.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">牌照代码</label>
+        <div class="col-sm-1" style="width:70px;">
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-sm-1" style="width:70px;">
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">联系人</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+        <label class="col-sm-2 control-label">联系人电话</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control">
+        </div>
+        <!--<span><i class="fa fa-fw fa-plus-square-o" (click)="addContact()"></i></span>-->
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">提交时间</label>
+        <div class="col-sm-3" style="display:table;">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control" id="vdrmgt_form_dp">
+        </div>
+        <label class="col-sm-2 control-label">状态</label>
+        <div class="col-sm-2">
+          <select class="form-control">
+            <option>已提交</option>
+            <option>未提交</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">办证项目</label>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>上牌</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div >违章</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>抵押/解除抵押</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>委托</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>年检</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>换补牌证</div>
+          <input type="checkbox">
+        </div>
+        <div class="col-sm-2 formMulCheckBox">
+          <div>其他</div>
+          <input type="checkbox">
+        </div>
+      </div>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary pull-left" (click)="create()">新建代办商</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;">查询</button>
+    </div>
+    <!-- /.box-footer -->
+  </form>
+</div>
+
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">查询结果</h3>
+    <button>Excel导出</button>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="cusmgtTable" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>商家编号</th>
+        <th>省市县</th>
+        <th>牌照代码</th>
+        <th>代办商名称</th>
+        <th>办证项目</th>
+        <th>联系人</th>
+        <th>联系电话</th>
+        <th>更新时间</th>
+        <th>状态</th>
+        <th>创建人</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>湖南省长沙市长沙县</td>
+        <td>湘D</td>
+        <td>车王代办</td>
+        <td>上牌，过户，年检</td>
+        <td>
+          <p>联系人1</p>
+          <p>联系人2</p>
+        </td>
+        <td>
+          <p>联系电话1</p>
+          <p>联系电话2</p>
+        </td>
+        <td>2018-01-01</td>
+        <td>提交</td>
+        <td>杨磊</td>
+        <td>
+          <p>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>提交</a>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>查看</a>
+          </p>
+          <p>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>编辑</a>
+          <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>删除</a>
+          </p>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>商家编号</th>
+        <th>省市县</th>
+        <th>牌照号码</th>
+        <th>办证项目</th>
+        <th>联系人</th>
+        <th>联系电话</th>
+        <th>更新时间</th>
+        <th>状态</th>
+        <th>创建人</th>
+        <th>操作</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>

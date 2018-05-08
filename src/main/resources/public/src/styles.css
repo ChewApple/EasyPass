@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/bower_components/font-awesome/css/font-awesome.min.css";
+@import "assets/bower_components/Ionicons/css/ionicons.min.css";
+
+.formMulCheckBox{
+  display: flex;
+  padding-top: 7px;
+  width: 100px;
+}
+.formRadio{
+  display: flex;
+  padding-top: 7px;
+  width: 100px;
+}
