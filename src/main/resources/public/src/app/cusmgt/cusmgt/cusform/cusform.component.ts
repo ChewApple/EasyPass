@@ -5,6 +5,8 @@ import {Customer, CustomerService} from "../../../service/customer.service";
 import {ValidationService} from "../../../shared/services/validation.service";
 import {mobileUniqueValidator, mobileValidator} from "../../../shared/validators/Validators";
 import {Role} from "../../../service/role.service";
+import {AddrSelectService, Area, City, Province} from "../../../shared/services/addr-select.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-cusform',
@@ -16,14 +18,19 @@ export class CusformComponent implements OnInit {
   private formGroup: FormGroup;
   public cusid;
   public cus: Customer;
+  public city: Observable<City[]>;
+  public area: Observable<Area[]>;
+  public province: Observable<Province[]>;
 
   constructor(private router: Router,
               private routeInfo: ActivatedRoute,
               private cusService: CustomerService,
-              public validation: ValidationService,) {
+              public validation: ValidationService,
+              private addrService: AddrSelectService) {
   }
 
   ngOnInit() {
+    this.province = this.addrService.getPros();
     this.cusid = this.routeInfo.snapshot.params['id'];
     this.formGroup = this.fb.group({
       cusname: ['', Validators.required],
@@ -113,5 +120,33 @@ export class CusformComponent implements OnInit {
     } else {
       this.validation.validateAllFormFields(this.formGroup);
     }
+  }
+
+  showCity(item) {
+    let p = item.target.value;
+    console.log(p);
+    this.addrService.getProCode(p).subscribe(
+      res => {
+        this.formGroup.get('vdrplate1').setValue(res);
+      }
+    );
+    this.city = this.addrService.getCities(p);
+    // this.formGroup.get('vdraddr3').reset();
+    this.area = this.addrService.getAreas('');
+  }
+
+  showArea(item) {
+    let c = item.target.value;
+    this.addrService.getShotCode(c).subscribe(
+      res => {
+        if (res == '' || res == null) {
+          // this.formGroup.get('vdrplate2').enable();
+        } else {
+          // this.formGroup.get('vdrplate2').disable();
+          this.formGroup.get('vdrplate2').setValue(res);
+        }
+      }
+    );
+    this.area = this.addrService.getAreas(c);
   }
 }

@@ -14,6 +14,12 @@ export class VendorService {
     return this.httpClient.post('/api/createVdr',params);
   }
 
+  saveVdr(vendor:any): Observable<any>{
+    let params = new HttpParams()
+      .set('vendor', vendor);
+    return this.httpClient.post('/api/saveVdr',params);
+  }
+
   getVdr(vdrid: any): Observable<any> {
     let params = new HttpParams()
       .set('vdrid', vdrid);
@@ -23,6 +29,7 @@ export class VendorService {
 }
 
 export class Vendor {
+
   constructor(
     public  vdrid: number,
     public  vdrname: string,

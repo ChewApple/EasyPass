@@ -48,6 +48,9 @@ import {RoleService} from "./service/role.service";
 import {CustomerService} from "./service/customer.service";
 import {AddrSelectService} from "./shared/services/addr-select.service";
 import {VendorService} from "./service/vendor.service";
+import {ItemFormComponent} from './vdrmgt/item-form/item-form.component';
+import {ItemdetailService} from "./service/itemdetail.service";
+import {PermissionService} from "./shared/services/permission.service";
 
 const routeConfig: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -73,7 +76,9 @@ const routeConfig: Routes = [
         {path: 'carmgt', component: CarmgtComponent},
         {path: 'carform/:id', component: CarformComponent},
         {path: 'odrmgt', component: OdrmgtComponent},
-        {path: 'orderform/:id', component: OrderformComponent}],
+        {path: 'orderform/:id', component: OrderformComponent},
+        {path: 'itemform', component: ItemFormComponent},
+        {path: 'itemform/:id', component: ItemFormComponent},],
     }], canActivate: [AuthGuardService]
   },
   // {path: '**', redirectTo: '/login', pathMatch: 'full'}
@@ -113,7 +118,8 @@ const routeConfig: Routes = [
     OrderformComponent,
     LoginComponent,
     MainComponent,
-    FieldErrorDisplayComponent
+    FieldErrorDisplayComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,
@@ -136,7 +142,9 @@ const routeConfig: Routes = [
     RoleService,
     CustomerService,
     AddrSelectService,
-    VendorService], // used to mention what service to provide in this module
+    VendorService,
+    ItemdetailService,
+    PermissionService], // used to mention what service to provide in this module
   bootstrap: [AppComponent] // main component
 })
 export class AppModule {

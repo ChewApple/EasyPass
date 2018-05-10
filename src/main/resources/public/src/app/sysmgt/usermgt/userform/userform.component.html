@@ -7,14 +7,14 @@
   <form class="form-horizontal" [formGroup]="formModel">
     <div class="box-body">
       <div class="form-group" style="padding:5px;">
-        <label class="col-sm-1 control-label">用户名</label>
+        <label class="col-sm-1 control-label">用户名<span>*</span></label>
         <div class="col-sm-2">
           <input type="text" class="form-control" formControlName="userName">
           <app-field-error-display
             [displayError]="validation.isFiledValid(formModel, 'userName')"
             errorMsg="*只能输入中文"></app-field-error-display>
         </div>
-        <label class="col-sm-1 control-label">手机号码</label>
+        <label class="col-sm-1 control-label">手机号码<span>*</span></label>
         <div class="col-sm-2">
           <input type="text" class="form-control" formControlName="phone">
           <app-field-error-display
@@ -22,14 +22,14 @@
         </div>
       </div>
       <div class="form-group" style="padding:5px;" formGroupName="passwordInfo">
-        <label class="col-sm-1 control-label">密码</label>
+        <label class="col-sm-1 control-label">密码<span>*</span></label>
         <div class="col-sm-2">
           <input type="password" class="form-control" formControlName="password">
           <app-field-error-display
             [displayError]="validation.isFiledValid(formModel, 'passwordInfo.password')"
             errorMsg="*密码必须大于6位"></app-field-error-display>
         </div>
-        <label class="col-sm-1 control-label">确认密码</label>
+        <label class="col-sm-1 control-label">确认密码<span>*</span></label>
         <div class="col-sm-2">
           <input type="password" class="form-control" formControlName="passwordConfirm">
           <app-field-error-display

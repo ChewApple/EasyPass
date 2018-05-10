@@ -26,7 +26,11 @@
               <!--</span>-->
         </a>
         <ul class="Jsubmenu">
-          <li *ngFor="let submenu of menu.subMenu" [class.active]="currentMenuId == submenu.id"><a href="javascript:;" (click)="nav(submenu)"><i class="fa fa-circle-o"></i>{{submenu.name}}</a></li>
+          <li *ngFor="let submenu of menu.subMenu" [class.active]="currentMenuId == submenu.id">
+            <a href="javascript:;" (click)="nav(submenu)">
+              <i class="fa fa-circle-o"></i>{{submenu.name}}
+            </a>
+          </li>
         </ul>
       </li>
     </ul>

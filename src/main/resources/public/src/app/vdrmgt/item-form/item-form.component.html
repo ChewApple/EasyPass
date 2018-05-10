@@ -1,0 +1,214 @@
+<form class="form-horizontal" [formGroup]="formGroup">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">办证要求以及费用</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="box-body">
+      <table style="width:100%;">
+        <tr>车辆所需材料</tr>
+        <tr>
+          <td>车辆登记证书<input type="checkbox" checked></td>
+          <td>行驶证<input type="checkbox" checked></td>
+          <td>交强险保单<input type="checkbox"></td>
+          <td>购置税本<input type="checkbox"></td>
+          <td colspan="2">新车发票<input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td colspan="3">其他<input type="checkbox">
+          <td>其他摘要说明</td>
+          <td colspan="2"><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>车辆是否需要到场</td>
+          <td>是
+            <input type="radio" name="carPresence">
+            否
+            <input type="radio" name="carPresence">
+          </td>
+          <td>金额</td>
+          <td><input></td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+        <tr>
+          原车主
+        </tr>
+        <tr>
+          <td>身份证</td>
+          <td>
+            原件<input type="radio" name="oriOwnerId">
+            复印件<input type="radio" name="oriOwnerId">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>费用</td>
+          <td><input></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="checkbox"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>本人是否到场</td>
+          <td>
+            是<input type="radio" name="oriOwnerPresence">
+            否<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板视频
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传视频</td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+        <tr>
+          <td>上传样板公证书
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传公证书</td>
+        </tr>
+        <tr>
+          <td>摘要说明</td>
+          <td colspan="2"><textarea></textarea></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>原车主单位营业执照</td>
+          <td>
+            原件<input type="radio" name="oriOwnerPresence">
+            复印件<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+        <tr>
+          新车主
+        </tr>
+        <tr>
+          <td>身份证</td>
+          <td>
+            原件<input type="radio" name="oriOwnerId">
+            复印件<input type="radio" name="oriOwnerId">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>费用</td>
+          <td><input></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="checkbox"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>本人是否到场</td>
+          <td>
+            是<input type="radio" name="oriOwnerPresence">
+            否<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板视频
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传视频</td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+        <tr>
+          <td>上传样板公证书
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传公证书</td>
+        </tr>
+        <tr>
+          <td>摘要说明</td>
+          <td colspan="2"><textarea></textarea></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>原车主单位营业执照</td>
+          <td>
+            原件<input type="radio" name="oriOwnerPresence">
+            复印件<input type="radio" name="oriOwnerPresence">
+          </td>
+          <td>摘要说明</td>
+          <td><textarea></textarea></td>
+          <td>金额</td>
+          <td><input type="number"></td>
+        </tr>
+        <tr>
+          <td>其他证件</td>
+          <td colspan="2"><input type="text"></td>
+          <td>金额</td>
+          <td colspan="2"><input type="number"></td>
+        </tr>
+        <tr>
+          <td>上传样板图片
+            <button type="button">上传</button>
+          </td>
+          <td colspan="5">展示已上传图片</td>
+        </tr>
+      </table>
+    </div>
+    <!-- /.box-body -->
+    <!-- /.box-footer -->
+  </div>
+  <!-- /.box -->
+  <div class="box-footer">
+    <button type="button" class="btn btn-default" (click)="cancel()">取消</button>
+    <button type="submit" class="btn btn-default" (click)="save()">保存</button>
+  </div>
+</form>

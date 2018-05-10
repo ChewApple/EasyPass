@@ -28,6 +28,10 @@ public class VendorService {
         return v.getVdrid();
     }
 
+    public void saveVdr(Vendor v){
+        vdrRepo.save(v);
+    }
+
     public Vendor getVdr(Integer vdrid){
         return vdrRepo.getVdr(vdrid);
     }

@@ -7,7 +7,7 @@
   <form class="form-horizontal" [formGroup]="formGroup">
     <div class="box-body">
       <div class="form-group" style="padding:5px;">
-        <label class="col-sm-2 control-label">客户模式</label>
+        <label class="col-sm-2 control-label">客户模式<span>*</span></label>
         <div class="col-sm-2">
           <select class="form-control" formControlName="cusmode">
             <option value="个人">个人</option>
@@ -16,7 +16,7 @@
           <app-field-error-display
             [displayError]="validation.isFiledValid(formGroup, 'cusmode')" errorMsg="*必填项"></app-field-error-display>
         </div>
-        <label class="col-sm-2 control-label">客户名称</label>
+        <label class="col-sm-2 control-label">客户名称<span>*</span></label>
         <div class="col-sm-2">
           <input class="form-control" formControlName="cusname">
           <app-field-error-display
@@ -24,37 +24,40 @@
         </div>
       </div>
       <div class="form-group" style="padding:5px;">
-        <label class="col-sm-2 control-label">联系人</label>
+        <label class="col-sm-2 control-label">联系人<span>*</span></label>
         <div class="col-sm-2">
           <input type="text" class="form-control" formControlName="contact">
           <app-field-error-display
             [displayError]="validation.isFiledValid(formGroup, 'contact')" errorMsg="*必填项"></app-field-error-display>
         </div>
-        <label class="col-sm-2 control-label">联系人手机号</label>
+        <label class="col-sm-2 control-label">联系人手机号<span>*</span></label>
         <div class="col-sm-2">
           <input type="text" class="form-control" formControlName="contactPhone">
           <app-field-error-display
-            [displayError]="validation.isFiledValid(formGroup, 'contactPhone')" errorMsg="*必填项"></app-field-error-display>
+            [displayError]="validation.isFiledValid(formGroup, 'contactPhone')" errorMsg="*格式不正确"></app-field-error-display>
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-2 control-label">详细地址</label>
         <div class="col-sm-2" style="display:table;">
           <div class="input-group-addon">省</div>
-          <select class="form-control" formControlName="province">
-            <option value="上海">上海</option>
+          <select class="form-control" (change)="showCity($event)" formControlName="province">
+            <option disabled selected="selected">请选择省</option>
+            <option *ngFor="let pro of province | async; let i = index" value="{{pro.name}}">{{pro.name}}</option>
           </select>
         </div>
         <div class="col-sm-2" style="display:table;">
           <div class="input-group-addon">市</div>
-          <select class="form-control" formControlName="city">
-            <option value="上海">上海</option>
+          <select class="form-control" (change)="showArea($event)" formControlName="city">
+            <option disabled selected="selected">请选择市</option>
+            <option *ngFor="let c of city | async; let i = index" value="{{c.name}}">{{c.name}}</option>
           </select>
         </div>
         <div class="col-sm-2" style="display:table;">
           <div class="input-group-addon">县</div>
           <select class="form-control" formControlName="area">
-            <option value="上海">上海</option>
+            <option disabled selected="selected">请选择区</option>
+            <option *ngFor="let a of area | async; let i = index" value="{{a.name}}">{{a.name}}</option>
           </select>
         </div>
       </div>

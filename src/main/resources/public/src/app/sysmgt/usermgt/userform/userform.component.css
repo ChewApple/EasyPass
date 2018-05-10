@@ -22,3 +22,8 @@
   font-size: 10px;
   color: red;
 }
+
+label span{
+  color:red;
+  margin:4px;
+}

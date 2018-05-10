@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {PermissionService} from "../shared/services/permission.service";
 
 @Component({
   selector: 'app-menu',
@@ -13,12 +14,14 @@ export class MenuComponent implements OnInit {
   userName: string;
   rolename: string;
 
-  constructor(public router: Router) {
+  constructor(public router: Router,
+              private pService: PermissionService) {
   }
 
   ngOnInit() {
     this.userName = JSON.parse(localStorage.getItem('currentUser')).username;
     this.rolename = JSON.parse(localStorage.getItem('currentUser')).rolename;
+
     this.menus = [
       new Menu(1, '系统管理', [{id: 11, name: '用户管理', link: 'home/usermgt'}, {id: 12, name: '岗位管理', link: 'home/pstnmgt'}, {
         id: 13,
@@ -28,12 +31,12 @@ export class MenuComponent implements OnInit {
       new Menu(2, '客户管理', [{id: 21, name: '客户管理', link: 'home/cusmgt'}, {id: 22, name: '代办商管理', link: 'home/vdrmgt'}]),
       new Menu(3, '销售限价管理', [{id: 31, name: '销售限价管理', link: 'home/presmgt'}]),
       new Menu(4, '订单管理', [{id: 41, name: '办证车辆管理', link: 'home/carmgt'}, {id: 42, name: '订单管理', link: 'home/odrmgt'}]),
-      // new Menu(2, '代办商管理', 'vdrmgt'),
-      // new Menu(3, '客户管理', 'ctmmgt'),
-      // new Menu(4, '车辆管理', 'carmgt'),
-      // new Menu(5, '订单管理', 'odrmgt');
-    ]
-    ;
+    ];
+    if(!this.pService.checkPerm('1')){
+      this.menus.splice(0,1);
+    }
+
+
   }
 
   // target to hold menu information and enable the active-highlight function
