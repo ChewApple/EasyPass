@@ -136,7 +136,7 @@ export class UserformComponent implements OnInit {
           },
           err => {
             console.log(err);
-            if(err.message.indexOf('phone_UNIQUE')){
+            if(err.message.indexOf('phone_UNIQUE')!=-1){
               alert('更新失败，手机号码已存在');
               this.user = null;
             }

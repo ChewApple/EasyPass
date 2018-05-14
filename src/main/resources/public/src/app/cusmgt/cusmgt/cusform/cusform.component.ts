@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Customer, CustomerService} from "../../../service/customer.service";
 import {ValidationService} from "../../../shared/services/validation.service";
 import {mobileUniqueValidator, mobileValidator} from "../../../shared/validators/Validators";
-import {Role} from "../../../service/role.service";
 import {AddrSelectService, Area, City, Province} from "../../../shared/services/addr-select.service";
 import {Observable} from "rxjs/Observable";
 

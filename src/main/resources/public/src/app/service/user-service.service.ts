@@ -76,6 +76,10 @@ export class UserServiceService {
       }
     );
   }
+
+  getAllUsers(): Observable<any>{
+    return this.httpClient.get('/api/allUsers');
+  }
 }
 
 export class User {

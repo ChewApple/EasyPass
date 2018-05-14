@@ -8,6 +8,13 @@ export function mobileValidator(mobile: FormControl): any {
   return valid ? null : {phone: {description: '手机号格式不正确'}};  // 如果返回为空，则表示校验通过
 }
 
+export function carnumValidator(mobile: FormControl): any {
+  let value = (mobile.value || '') + '';
+  var myreg = /^\d{11}$/;
+  let valid = myreg.test(value);
+  return valid ? null : {carnum: {description: '车架号'}};  // 如果返回为空，则表示校验通过
+}
+
 export function chineseValidator(name: FormControl): any {
   let value = (name.value || '') + '';
   var myreg = /^[\u4E00-\u9FA5]+$/;

@@ -21,6 +21,8 @@ public class UserService {
         return userRepo.getUsers(username, phone, role, state);
     }
 
+    public User[] getAllUsers(){return userRepo.getAllUsers();}
+
     public User getUser(Integer userid) {
         return userRepo.getUser(userid);
     }

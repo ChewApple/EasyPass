@@ -4,34 +4,43 @@
   </div>
   <!-- /.box-header -->
   <!-- form start -->
-  <form class="form-horizontal">
+  <form class="form-horizontal" [formGroup]="formGroup">
     <div class="box-body">
       <div class="form-group">
         <label class="col-sm-2 control-label">车架号</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control">
+        <div class="col-sm-4">
+          <input type="text" class="form-control" formControlName="carnum">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'carnum')"
+            errorMsg="*格式不正确"></app-field-error-display>
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-2 control-label">车辆详情</label>
         <div class="col-sm-2" style="display:table;">
           <div class="input-group-addon">品牌</div>
-          <select class="form-control">
-            <option value="福特">福特</option>
+          <select class="form-control" formControlName="carbrand" (change)="showSet($event)">
+            <option *ngFor="let c of brand | async; let i = index" value="{{c}}">{{c}}</option>
           </select>
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'carbrand')"
+            errorMsg="*必填项"></app-field-error-display>
         </div>
         <div class="col-sm-2" style="display:table;">
           <div class="input-group-addon">车系</div>
-          <select class="form-control">
-            <option value="福克斯">福克斯</option>
+          <select class="form-control" formControlName="carset">
+            <option *ngFor="let c of set | async; let i = index" value="{{c}}">{{c}}</option>
           </select>
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'carset')"
+            errorMsg="*必填项"></app-field-error-display>
         </div>
-        <div class="col-sm-3" style="display:table;">
-          <div class="input-group-addon">车型</div>
-          <select class="form-control">
-            <option value="运动">2018 2.0T 运动</option>
-          </select>
-        </div>
+        <!--<div class="col-sm-3" style="display:table;">-->
+        <!--<div class="input-group-addon">车型</div>-->
+        <!--<select class="form-control">-->
+        <!--<option value="运动">2018 2.0T 运动</option>-->
+        <!--</select>-->
+        <!--</div>-->
       </div>
       <div class="form-group">
         <label class="col-sm-2 control-label">初次登记日期</label>
@@ -39,14 +48,17 @@
           <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
           </div>
-          <input type="text" class="form-control" id="carform_dp">
+          <input type="text" class="form-control" id="carform_dp" formControlName="firstdate">
+          <app-field-error-display
+            [displayError]="validation.isFiledValid(formGroup, 'firstdate')"
+            errorMsg="*必填项"></app-field-error-display>
         </div>
       </div>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
-      <button type="submit" class="btn btn-primary pull-left" (click)="cancel()">取消</button>&nbsp;&nbsp;
-      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;">确定</button>
+      <button type="button" class="btn btn-primary pull-left" (click)="cancel()">取消</button>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success pull-left" style="margin-left:5px;" (click)="save()">新建</button>
     </div>
     <!-- /.box-footer -->
   </form>

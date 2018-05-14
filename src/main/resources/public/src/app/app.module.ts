@@ -51,6 +51,7 @@ import {VendorService} from "./service/vendor.service";
 import {ItemFormComponent} from './vdrmgt/item-form/item-form.component';
 import {ItemdetailService} from "./service/itemdetail.service";
 import {PermissionService} from "./shared/services/permission.service";
+import {CarService} from "./service/car.service";
 
 const routeConfig: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -144,7 +145,8 @@ const routeConfig: Routes = [
     AddrSelectService,
     VendorService,
     ItemdetailService,
-    PermissionService], // used to mention what service to provide in this module
+    PermissionService,
+    CarService], // used to mention what service to provide in this module
   bootstrap: [AppComponent] // main component
 })
 export class AppModule {

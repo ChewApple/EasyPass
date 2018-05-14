@@ -41,7 +41,7 @@ public class UserController {
         user.setState(state);
         user.setCreatedate(currentTime);
         user.setCreator(creator);
-        logger.info("新建用户："+user.toString());
+        logger.info("新建用户：" + user.toString());
         userService.addUser(user);
     }
 
@@ -50,19 +50,19 @@ public class UserController {
                            @RequestParam("phone") String phone,
                            @RequestParam("role") String role,
                            @RequestParam("state") String state) {
-        return userService.getUsers(username, phone, role, ("所有".equals(state)?"":state));
+        return userService.getUsers(username, phone, role, ("所有".equals(state) ? "" : state));
     }
 
     @PutMapping(value = "/user")
     public void updateUser(@RequestParam("userid") String userid,
-                             @RequestParam("username") String username,
-                             @RequestParam("phone") String phone,
-                             @RequestParam("password") String password,
-                             @RequestParam("rolename") String rolename,
-                             @RequestParam("gender") String gender,
-                             @RequestParam("state") String state,
-                             @RequestParam("createdate") String createdate,
-                             @RequestParam("creator") String creator) {
+                           @RequestParam("username") String username,
+                           @RequestParam("phone") String phone,
+                           @RequestParam("password") String password,
+                           @RequestParam("rolename") String rolename,
+                           @RequestParam("gender") String gender,
+                           @RequestParam("state") String state,
+                           @RequestParam("createdate") String createdate,
+                           @RequestParam("creator") String creator) {
         Date currentTime = new Date();
         User user = new User();
         user.setUserid(Integer.parseInt(userid));
@@ -74,13 +74,18 @@ public class UserController {
         user.setState(state);
         user.setCreatedate(currentTime);
         user.setCreator(creator);
-        logger.info("更新用户："+user.toString());
+        logger.info("更新用户：" + user.toString());
         userService.addUser(user);
     }
 
     @GetMapping(value = "/user/{id}")
     public User getUser(@PathVariable("id") Integer id) {
         return userService.getUser(id);
+    }
+
+    @GetMapping(value = "/allUsers")
+    public User[] getAllUsers() {
+        return userService.getAllUsers();
     }
 
 //    @PostMapping(value="/user")

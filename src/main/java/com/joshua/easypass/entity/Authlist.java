@@ -1,5 +1,6 @@
 package com.joshua.easypass.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,6 +11,7 @@ public class Authlist {
     private String authname;
     private String authtype;
     private String authsubtype;
+    @Column(name="auth_desc")
     private String desc;
     private String add1;
     private String add2;

@@ -107,7 +107,7 @@ public class VendorController {
         JSONObject jasonV = JSONObject.fromObject(vendor);
         logger.info("转成的jason对象为：" + jasonV);
 
-        Vendor v = (Vendor) JSONObject.toBean(jasonV);
+        Vendor v = (Vendor) JSONObject.toBean(jasonV, Vendor.class);
 //        v.setVdrid(vdrid);
 //        v.setVdrname(vdrname);
 //        v.setVdraddr(vdraddr);
